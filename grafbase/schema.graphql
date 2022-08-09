@@ -1,0 +1,31 @@
+enum BillType {
+  Electricity
+  Gas
+  Water
+  Wifi
+  Grocery
+  Others
+}
+
+type Resident @model {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String
+  dob: String
+}
+
+type Bill @model {
+  id: ID!
+  type: BillType!
+  title: String!
+  amount: Float!
+  date: String!
+  residents: [Resident!]!
+  paid: Boolean!
+  paidDate: String
+
+  description: String
+
+}
