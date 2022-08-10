@@ -11,7 +11,7 @@ type Resident @model {
   id: ID!
   firstName: String!
   lastName: String!
-  email: String!
+  email: String! @unique
   phone: String
   dob: String
 }
