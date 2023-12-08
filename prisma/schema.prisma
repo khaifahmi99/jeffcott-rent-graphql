@@ -21,7 +21,7 @@ model Resident {
   firstName String
   lastName  String
   email     String    @unique
-  phone     String?   @unique
+  phone     String?
   dob       DateTime?
   Bill      Bill?     @relation(fields: [billId], references: [id])
   billId    String?   @db.ObjectId
