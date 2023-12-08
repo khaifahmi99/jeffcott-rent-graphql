@@ -1,0 +1,41 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum BillType {
+  Electricity
+  Gas
+  Water
+  Wifi
+  Grocery
+  Others
+}
+
+model Resident {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  email     String    @unique
+  phone     String?   @unique
+  dob       DateTime?
+  Bill      Bill?     @relation(fields: [billId], references: [id])
+  billId    String?   @db.ObjectId
+}
+
+model Bill {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  type        BillType
+  amount      Float
+  date        DateTime
+  paid        Boolean
+  paidDate    DateTime?
+  description String?
+
+  residents Resident[]
+}
