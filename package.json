@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@prisma/client": "^5.7.0"
+  },
+  "devDependencies": {
+    "@grafbase/sdk": "~0.12.0"
   }
 }
