@@ -12,7 +12,7 @@ const mongo = connector.MongoDB('MongoDB', {
 mongo.model('Resident', {
   firstName: g.string(),
   lastName: g.string(),
-  email: g.email(),
+  email: g.email().unique(),
   phone: g.string().optional(),
   dob: g.datetime().optional(), 
 }).collection('Resident');
