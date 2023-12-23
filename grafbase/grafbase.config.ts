@@ -27,7 +27,7 @@ mongo.model('Bill', {
   paid: g.boolean(),
   paidDate: g.string().optional(), // ISO-String
   description: g.string().optional(),
-  residents: g.ref('Resident').list(),
+  residents: g.string().list(), // ID of the residents
 }).collection('Bill');
 
 g.datasource(mongo, {namespace: false})
